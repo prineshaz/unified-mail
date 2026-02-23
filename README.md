@@ -1,4 +1,4 @@
-# POC Mail Aggregator
+# POC Unified Inbox
 
 Web inbox for property owners who receive messages from multiple letting platforms (for example: Foxtons, Rightmove, Zoopla, Expedia).
 
@@ -103,7 +103,7 @@ cd frontend
 pnpm install
 pnpm dev
 ```
-Go to http://localhost:5010
+Go to http://localhost:5010/admin/123
 ```bash
 1. In Navbar click on 'User One'
 2. It will connect to the backend, and open a connection for live updates via SSE
