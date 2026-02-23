@@ -1,0 +1,55 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: build
+    container_name: message-service
+    ports:
+      - '${HOST_PORT}:5000'
+    environment:
+      PORT: 5000
+      HOST_PORT: ${HOST_PORT}
+      NODE_ENV: development
+      REDIS_CACHE_ENABLED: ${REDIS_CACHE_ENABLED:-true}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379}
+      REDIS_AUTH: ${REDIS_AUTH:-}
+      REDIS_CACHE_TTL: ${REDIS_CACHE_TTL:-3600}
+      REDIS_CACHE_PREFIX: ${REDIS_CACHE_PREFIX:-mail_agg}
+      REDIS_LOGGING: ${REDIS_LOGGING:-false}
+    command: ['pnpm', 'dev']
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      redis:
+        condition: service_started
+
+  redis:
+    image: redis:7-alpine
+    restart: always
+    ports:
+      - '${REDIS_HOST_PORT:-6379}:6379'
+    command: >
+      sh -c "redis-server
+      --save 60 1
+      --loglevel warning
+      --requirepass $$REDIS_AUTH"
+    environment:
+      - REDIS_AUTH=${REDIS_AUTH:-}
+    volumes:
+      - redis_data:/data
+
+  redis-insight:
+    image: redis/redisinsight:latest
+    restart: always
+    ports:
+      - '5549:5540'
+    volumes:
+      - redis_insight_data:/data
+    depends_on:
+      - redis
+
+volumes:
+  redis_data:
+  redis_insight_data:
