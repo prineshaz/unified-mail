@@ -154,17 +154,18 @@ Go to http://localhost:5010/admin/123
 ```
 
 
-## Next Iteration Ideas
+## Next Iteration Ideas on UI
 
-- Stronger typing shared across frontend/backend (`no-explicit-any` cleanup)
 - Better optimistic update + rollback contracts for server actions (Speedy client experience)
-- Unified SSE event typing (`created` / `updated` / `deleted`)
-- Filtering, search, pagination, and richer platform badges/icons
 - More focus on UX & User state in the client, to allow richer experience
   with settings preference, i18n, and more.
-- Connect to a DB (postgres) to allow for better data management that scales well
+- Unified SSE event typing (`created` / `updated` / `deleted`). This is a one way street, but if live comms is needed, 
+  websockets would be better suited.
+- Filtering, search, pagination, and richer platform badges/icons
+- Connect to a DB (postgres) to allow for better data management that scales well. Read optimised. 
 - Alot more! Requires more discussion! See system design below.
 
+## System design of interacting services
 ![Highlevel design](./Highlevel-design.png)
 
 ## Testing architecture
