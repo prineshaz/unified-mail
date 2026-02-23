@@ -25,7 +25,6 @@ export default function Modal({
     }
     return (
         <Dialog open={true} onOpenChange={(isOpen) => {
-            console.log('isOpen', isOpen)
             if (!isOpen) {
                 handleCancel()
             }

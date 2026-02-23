@@ -13,7 +13,7 @@ export default function InboxList(props: {data: Record<string, any>, onSetData: 
     return (
         <>
 
-        <ul className="flex w-full max-w-md flex-col gap-6">
+        <ul className="flex w-full max-w-md flex-col gap-4">
             {data.inbox.map((inbox: any) => {
                 const message = data.messages.find((message: any) => message.id === inbox.messageId)
                 return (

@@ -9,6 +9,10 @@ export default async function MessagePane({ params }: {params: {messageId: strin
     const messagePromise = getMessage(messageId)
     return (
         <Suspense fallback={<SkeletonText />}>
+            { 
+              // Simulate a delay to show the loading state
+              new Promise(resolve => setTimeout(resolve, 300))
+            }
             <MessageView message={messagePromise} userId={userId} />
             <MessagePropertyView message={messagePromise} />
         </Suspense>
