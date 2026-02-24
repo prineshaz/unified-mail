@@ -172,6 +172,9 @@ Go to http://localhost:5010/admin/123
   websockets would be better suited.
 - Filtering, search, pagination, and richer platform badges/icons
 - Connect to a DB (postgres) to allow for better data management that scales well. Read optimised. 
+- Use AI agent to 
+ - provide summary and decide what gets notified to you (via notification toasts)
+ - cross examine inbox loads an provide quick links to related messages
 - Alot more! Requires more discussion! See system design below on overview of services.
 
 ## Proposed system design of all interacting services 
