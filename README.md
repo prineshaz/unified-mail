@@ -43,6 +43,7 @@ The aggregation service is mocked in `backend/src/model` but designed as if it f
 - Inbox
 - Messages
 - Platforms
+- Bookings
 
 ### Endpoints (incomplete)
 
