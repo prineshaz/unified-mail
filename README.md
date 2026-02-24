@@ -88,6 +88,14 @@ simple-mail-aggregator/
 
 ## Running the Project
 
+### Requirements
+
+Make sure the following are installed on your machine:
+
+- **Docker Desktop** (required for Redis and backend dependencies via `docker-compose`)
+- **Node.js** (recommend LTS, e.g. `>=20`)
+- **pnpm** (recommened package manager used by both frontend and backend)
+-- `npm install -g pnpm`
 ### Backend
 
 ```bash
