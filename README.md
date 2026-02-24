@@ -163,9 +163,9 @@ Go to http://localhost:5010/admin/123
   websockets would be better suited.
 - Filtering, search, pagination, and richer platform badges/icons
 - Connect to a DB (postgres) to allow for better data management that scales well. Read optimised. 
-- Alot more! Requires more discussion! See system design below.
+- Alot more! Requires more discussion! See system design below on overview of services.
 
-## System design of interacting services
+## Proposed system design of all interacting services 
 ![Highlevel design](./Highlevel-design.png)
 
 ## Testing architecture
@@ -174,4 +174,4 @@ Go to http://localhost:5010/admin/123
 - Backend API testing with a pact server (API contract testing).
 - All code pushed to upstream CI pipeline (Github workflows/Atlasian Stash).
   - PR branch builds ephermeral environments where tests run and act as a demo Env.
-- Profile rendering
+- Profile rendering and monitor performance metric thresholds (via React <Profiler> )
